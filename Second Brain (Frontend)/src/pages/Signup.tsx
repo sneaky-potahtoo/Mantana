@@ -28,6 +28,15 @@ export function Signup() {
         <div className="flex justify-center pt-4">
           <Button onClick={signup} variant="primary" text="Sign up" size="md" />
         </div>
+        <p className="text-center text-sm text-gray-500 mt-4">
+          Already have an account?{" "}
+          <span
+            className="text-purple-600 cursor-pointer hover:underline font-medium"
+            onClick={() => navigate("/signin")}
+          >
+            Sign in
+          </span>
+        </p>
       </div>
     </div>
   );
