@@ -6,7 +6,8 @@ import { BACKEND_URL } from "../config";
 import axios from "axios";
 
 enum ContentType {
-  Youtube = "youtube"
+  Youtube = "youtube",
+  Website = "website"
 }
 
 interface CreateContentModalProps {
@@ -59,6 +60,9 @@ export function CreateContentModal({
               <div className="flex gap-1 p-4">
                 <Button text="Youtube" variant={type === ContentType.Youtube ? "primary" : "secondary"} onClick={() => {
                   setType(ContentType.Youtube)
+                }} size="md"></Button>
+                <Button text="Website" variant={type === ContentType.Website ? "primary" : "secondary"} onClick={() => {
+                  setType(ContentType.Website)
                 }} size="md"></Button>
               </div>
               <Button onClick={addContent} variant="primary" text="Submit" size="md" />
