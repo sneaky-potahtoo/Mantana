@@ -8,9 +8,11 @@ export function SidebarItem({
   icon: ReactElement;
 }) {
   return (
-    <div className="flex text-gray-700 py-2 cursor-pointer hover:bg-gray-200 rounded-lg pl-8 transition-all duration-250">
-      <div className="pr-2">{icon}</div>
-      <div>{text}</div>
+    <div className="flex items-center gap-3 text-gray-500 py-2.5 px-4 cursor-pointer hover:bg-[#f0efe9] hover:text-gray-900 rounded-xl transition-all duration-200 group">
+      <span className="group-hover:scale-105 transition-transform duration-200">
+        {icon}
+      </span>
+      <span className="text-sm font-medium">{text}</span>
     </div>
   );
 }

@@ -1,15 +1,16 @@
 interface InputProps {
   placeholder: string;
-  reference?: Ref<HTMLInputElement>;
+  reference?: React.Ref<HTMLInputElement>;
+  type?: string;
 }
 
-export function Input({placeholder, reference}: InputProps) {
+export function Input({ placeholder, reference, type = "text" }: InputProps) {
   return (
-    <div>
+    <div className="w-full">
       <input
         placeholder={placeholder}
-        type={"text"}
-        className="px-4 py-2 border border-gray-200 m-2"
+        type={type}
+        className="w-full px-4 py-3 bg-[#f5f4f0] border border-transparent rounded-xl text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gray-300 focus:bg-white transition-all duration-200"
         ref={reference}
       />
     </div>
