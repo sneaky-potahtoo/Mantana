@@ -9,26 +9,30 @@ interface ButtonProps {
   loading?: boolean;
 }
 
-// type Variants = "primary" | "secondary";
-
 const variantStyles = {
-  primary: "bg-purple-600 text-white",
-  secondary: "bg-purple-200 text-purple-600",
+  primary: "bg-gray-900 text-white hover:bg-gray-800",
+  secondary: "bg-[#f0efe9] text-gray-700 hover:bg-[#e8e7e1] border border-gray-200",
 };
 
 const sizeStyles = {
-    "sm": "py-1 px-2",
-    "md": "py-2 px-4",
-    "lg": "py-4 px-6"
-}
+  sm: "py-1.5 px-3 text-xs",
+  md: "py-2.5 px-5 text-sm",
+  lg: "py-3 px-7 text-base",
+};
 
-const defaultStyles = "cursor-pointer rounded-md font-light flex items-center"
-
+const defaultStyles =
+  "cursor-pointer rounded-xl font-medium flex items-center gap-2 transition-all duration-200";
 
 export const Button = (props: ButtonProps) => {
   return (
-    <button onClick={props.onClick} className={ `${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]} ${props.loading ? "opacity-45" : ""} ` }>
-      {props.startIcon ? <div className="pr-2"> {props.startIcon} </div> : null} {props.text}
+    <button
+      onClick={props.onClick}
+      className={`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]} ${
+        props.loading ? "opacity-50 pointer-events-none" : ""
+      }`}
+    >
+      {props.startIcon && <span>{props.startIcon}</span>}
+      {props.text}
     </button>
   );
 };

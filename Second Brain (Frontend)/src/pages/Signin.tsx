@@ -5,12 +5,11 @@ import { Input } from "../components/Input";
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";
 
-
-
+import mantanaLogo from "../assets/mantana.svg";
 
 export function Signin() {
-  const usernameRef = useRef<HTMLInputElement>();
-  const passwordRef = useRef<HTMLInputElement>();
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   async function signin() {
@@ -22,20 +21,40 @@ export function Signin() {
     });
     const jwt = response.data.token;
     localStorage.setItem("token", jwt);
-    navigate("/dashboard")
+    navigate("/dashboard");
   }
+
   return (
-    <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
-      <div className="bg-white rounded-xl border border-gray-200 min-w-48 p-8">
-        <Input reference={usernameRef} placeholder="Username" />
-        <Input reference={passwordRef} placeholder="Password" />
-        <div className="flex justify-center pt-4">
+    <div className="min-h-screen bg-[#f5f4f0] flex items-center justify-center px-4">
+      <div className="w-full max-w-sm">
+        {/* Logo mark */}
+        <div className="flex justify-center mb-8">
+          <div className="w-16 h-16 flex items-center justify-center">
+            <img src={mantanaLogo} alt="Mantana" className="w-full h-full" />
+          </div>
+        </div>
+
+        {/* Heading */}
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+            Welcome back
+          </h1>
+          <p className="text-sm text-gray-400 mt-1">
+            Sign in to access your Mantana.
+          </p>
+        </div>
+
+        {/* Card */}
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-4">
+          <Input reference={usernameRef} placeholder="Username" />
+          <Input reference={passwordRef} placeholder="Password" type="password" />
           <Button onClick={signin} variant="primary" text="Sign in" size="md" />
         </div>
-        <p className="text-center text-sm text-gray-500 mt-4">
+        {/* Cross-link */}
+        <p className="text-center text-sm text-gray-400 mt-5">
           Don't have an account?{" "}
           <span
-            className="text-purple-600 cursor-pointer hover:underline font-medium"
+            className="text-gray-900 font-semibold cursor-pointer hover:underline"
             onClick={() => navigate("/signup")}
           >
             Sign up
