@@ -1,4 +1,5 @@
 import { YoutubeIcon } from "../icons/YoutubeIcon";
+import { WebsiteIcon } from "../icons/WebsiteIcon";
 import { SidebarItem } from "./SidebarItem";
 import mantanaLogo from "../assets/mantana.svg";
 
@@ -10,16 +11,9 @@ export function Sidebar() {
         <div className="w-8 h-8 flex items-center justify-center">
           <img src={mantanaLogo} alt="Mantana" className="w-full h-full" />
         </div>
-<<<<<<< Updated upstream
-        Brainly
-      </div>
-      <div className="pt-4">
-        <SidebarItem text="Youtube" icon={<YoutubeIcon />} />
-=======
         <span className="text-2xl font-serif font-semibold text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-500 tracking-tight">
           Mantana
         </span>
->>>>>>> Stashed changes
       </div>
 
       {/* Nav label */}

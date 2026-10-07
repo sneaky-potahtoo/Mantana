@@ -6,12 +6,8 @@ import { BACKEND_URL } from "../config";
 import axios from "axios";
 
 enum ContentType {
-<<<<<<< Updated upstream
-  Youtube = "youtube"
-=======
   Youtube = "youtube",
   Website = "website",
->>>>>>> Stashed changes
 }
 
 interface CreateContentModalProps {
@@ -45,29 +41,6 @@ export function CreateContentModal({
   if (!open) return null;
 
   return (
-<<<<<<< Updated upstream
-    <div>
-      {open && (
-        <div className="fixed top-0 left-0 z-10 flex h-screen w-screen items-center justify-center bg-slate-500/60">
-          <div className="rounded-lg bg-white p-4 align">
-            <div className="flex justify-end">
-              <span className="cursor-pointer" onClick={onClose}>
-                <CrossIcon />
-              </span>
-            </div> 
-            <div className="flex flex-col items-center">
-              <div>
-                <Input reference={titleRef} placeholder="Title" />
-                <Input reference={linkRef} placeholder="Link" />
-              </div>
-              <div className="flex gap-1 p-4">
-                <Button text="Youtube" variant={type === ContentType.Youtube ? "primary" : "secondary"} onClick={() => {
-                  setType(ContentType.Youtube)
-                }} size="md"></Button>
-              </div>
-              <Button onClick={addContent} variant="primary" text="Submit" size="md" />
-            </div>
-=======
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md mx-4 overflow-hidden">
         {/* Modal header */}
@@ -79,7 +52,6 @@ export function CreateContentModal({
             <p className="text-xs text-gray-400 mt-0.5">
               Save a link to your Mantana
             </p>
->>>>>>> Stashed changes
           </div>
           <button
             onClick={onClose}

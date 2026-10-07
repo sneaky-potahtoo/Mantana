@@ -1,11 +1,19 @@
+import { useEffect, useState } from "react";
 import { OpenIcon } from "../icons/OpenIcon";
 import { ShareIcon } from "../icons/ShareIcon";
 import { YoutubeIcon } from "../icons/YoutubeIcon";
+import { WebsiteIcon } from "../icons/WebsiteIcon";
 
 interface CardProps {
   title: string;
-  type: "github" | "youtube";
+  type: "github" | "youtube" | "website";
   link: string;
+}
+
+interface LinkPreview {
+  image?: string;
+  description?: string;
+  publisher?: string;
 }
 
 function getYouTubeEmbedUrl(rawLink: string) {
@@ -18,8 +26,6 @@ function getYouTubeEmbedUrl(rawLink: string) {
   return rawLink;
 }
 
-<<<<<<< Updated upstream
-=======
 function WebsitePreview({ link }: { link: string }) {
   const [preview, setPreview] = useState<LinkPreview | null>(null);
   const [loading, setLoading] = useState(true);
@@ -85,33 +91,10 @@ function WebsitePreview({ link }: { link: string }) {
   );
 }
 
->>>>>>> Stashed changes
 export function Card({ title, type, link }: CardProps) {
   const embedLink = type === "youtube" ? getYouTubeEmbedUrl(link) : link;
 
   return (
-<<<<<<< Updated upstream
-    <div>
-      <div className="p-4 bg-white rounded-md border border-gray-200 max-w-96">
-        <div className="flex justify-between">
-          <div className="flex items-center text-md">
-            <div className="text-gray-500 pr-2">
-              <YoutubeIcon />
-            </div>
-            {title}
-          </div>
-
-          <div className="flex items-center">
-            <div className="pr-2 text-gray-500">
-              <a href={link} target="_blank">
-                <OpenIcon size="md" />
-              </a>
-            </div>
-            <div className="text-gray-500">
-              <ShareIcon size="md" />
-            </div>
-          </div>
-=======
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200 w-80 overflow-hidden">
       {/* Card header */}
       <div className="flex items-center justify-between px-4 pt-4 pb-3">
@@ -123,7 +106,6 @@ export function Card({ title, type, link }: CardProps) {
           <span className="text-sm font-semibold text-gray-800 truncate">
             {title}
           </span>
->>>>>>> Stashed changes
         </div>
 
         <div className="flex items-center gap-2 shrink-0 ml-2">
@@ -157,14 +139,9 @@ export function Card({ title, type, link }: CardProps) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-<<<<<<< Updated upstream
-          )}
-        </div>
-=======
           </div>
         )}
         {type === "website" && <WebsitePreview link={link} />}
->>>>>>> Stashed changes
       </div>
     </div>
   );
