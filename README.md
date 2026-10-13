@@ -48,6 +48,6 @@ Set `VITE_BACKEND_URL` in its `.env` file to the backend URL. Vite usually serve
 
 The backend provides sign-up, sign-in, content, and brain-sharing endpoints under `/api/v1`.
 
-## Note
+<!-- ## Note
 
-The backend can generate a share link, but the frontend does not yet have a public share page.
+The backend can generate a share link, but the frontend does not yet have a public share page. -->
